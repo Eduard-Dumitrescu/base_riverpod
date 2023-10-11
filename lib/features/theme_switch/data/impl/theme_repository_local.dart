@@ -26,7 +26,8 @@ class ThemeRepositoryLocal implements ThemeRepository {
   }
 
   @override
-  Stream<ThemeMode> get currentThemeMode => _themeModeController.stream;
+  Stream<ThemeMode> get currentThemeMode =>
+      _themeModeController.stream.distinct();
 
   Future<void> onDispose() => _themeModeController.close();
 }

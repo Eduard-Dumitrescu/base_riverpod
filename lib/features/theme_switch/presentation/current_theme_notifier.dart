@@ -2,10 +2,10 @@ import 'package:base_riverpod/features/theme_switch/domain/theme_repository.dart
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'theme_switch_notifier.g.dart';
+part 'current_theme_notifier.g.dart';
 
 @riverpod
-class ThemeSwitch extends _$ThemeSwitch {
+class CurrentTheme extends _$CurrentTheme {
   ThemeRepository get themeRepository => ref.watch(themeRepositoryProvider);
 
   @override

@@ -18,8 +18,6 @@ class ThemeDaoSharedPrefs implements ThemeDao {
       ThemeMode.system;
 
   @override
-  Future<void> setThemeMode(ThemeMode themeMode) => switch (themeMode) {
-        ThemeMode.system => _sharedPreferences.remove(_themeModeKey),
-        _ => _sharedPreferences.setInt(_themeModeKey, themeMode.index),
-      };
+  Future<void> setThemeMode(ThemeMode themeMode) =>
+      _sharedPreferences.setInt(_themeModeKey, themeMode.index);
 }

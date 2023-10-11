@@ -24,7 +24,3 @@ ThemeRepository themeRepository(ThemeRepositoryRef ref) {
 
   return repo;
 }
-
-@riverpod
-Stream<ThemeMode> currentThemeMode(CurrentThemeModeRef ref) =>
-    ref.watch(themeRepositoryProvider).currentThemeMode;
