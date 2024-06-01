@@ -6,11 +6,11 @@ part 'current_theme_notifier.g.dart';
 
 @riverpod
 class CurrentTheme extends _$CurrentTheme {
-  ThemeRepository get themeRepository => ref.watch(themeRepositoryProvider);
+  ThemeRepository get _themeRepository => ref.watch(themeRepositoryProvider);
 
   @override
-  Stream<ThemeMode> build() => themeRepository.currentThemeMode;
+  Stream<ThemeMode> build() => _themeRepository.currentThemeMode;
 
   Future<void> setThemeMode(final ThemeMode themeMode) =>
-      themeRepository.setThemeMode(themeMode);
+      _themeRepository.setThemeMode(themeMode);
 }
