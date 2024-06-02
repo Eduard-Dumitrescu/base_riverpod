@@ -1,5 +1,6 @@
 import 'package:base_riverpod/core/storage/storage_module.dart';
-import 'package:base_riverpod/features/theme_switch/presentation/current_theme_notifier.dart';
+import 'package:base_riverpod/features/theme_switch/presentation/theme_switch_segmented_widget.dart';
+import 'package:base_riverpod/features/theme_switch/presentation/theme_switch_view_model.dart';
 import 'package:base_riverpod/features/theme_switch/presentation/theme_switch_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,7 +28,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeMode? themeMode = ref.watch(currentThemeProvider).value;
+    final ThemeMode? themeMode = ref.watch(themeSwitchViewModelProvider).value;
 
     return MaterialApp(
       title: 'Base riverpod',
@@ -81,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {},
               child: null,
             ),
-            const ThemeSwitchWidget(),
+            const ThemeSwitchMenuWidget(),
+            const ThemeSwitchSegmentedWidget(),
           ],
         ),
       ),
