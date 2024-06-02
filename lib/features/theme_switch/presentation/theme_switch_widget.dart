@@ -1,5 +1,6 @@
 import 'package:base_riverpod/features/theme_switch/presentation/theme_switch_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ThemeSwitchMenuWidget extends ConsumerWidget {
@@ -7,14 +8,15 @@ class ThemeSwitchMenuWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeMode? currentThemeMode =
         ref.watch(themeSwitchViewModelProvider).valueOrNull;
 
     final String label = switch (currentThemeMode) {
-      ThemeMode.system => 'System',
-      ThemeMode.light => 'Light',
-      ThemeMode.dark => 'Dark',
-      null => 'Unknown',
+      ThemeMode.system => appLocalizations.labelSystemTheme,
+      ThemeMode.light => appLocalizations.labelLightTheme,
+      ThemeMode.dark => appLocalizations.labelDarkTheme,
+      null => appLocalizations.labelUnknown,
     };
 
     return MenuBar(
@@ -37,7 +39,7 @@ class ThemeSwitchMenuWidget extends ConsumerWidget {
                 ),
               )
               .toList(growable: false),
-          child: Text('Theme: $label'),
+          child: Text('${appLocalizations.labelTheme}: $label'),
         ),
       ],
     );
