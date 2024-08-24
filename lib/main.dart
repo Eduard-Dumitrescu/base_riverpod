@@ -32,6 +32,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       title: 'Base riverpod',
+      debugShowCheckedModeBanner: false,
       themeMode: themeMode,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
